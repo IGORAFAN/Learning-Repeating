@@ -50,7 +50,45 @@
         - list::insert()
         - sort()
         - reverse()
-        -
+        - count (It beg, It end, const T& v) – подсчет элементов со значением равным v;
+        - count_if (It beg, It end, UPredicate op) – подсчет элементов для которых op(el) == true;
+        - equal (It1 beg, It1 end, It2 cBeg) – истина, если два диапазона равны;
+        - equal (It1 beg, It1 end, It2 cBeg [, BPredicate op]) – проверка эквивалентности двух диапазонов (очень важно не путать понятие эквивалентности и равенства – это не одно и то же!!!);
+        - lexicographical_compare (It1 beg1, It1 end1, It2 beg2, It2 end2 [, BPredicate op]) – лексикографическое сравнение двух последовательностей;
+
+        - find (It beg, It end, const T& v) – поиск первого элемента со значением v;
+        - find_if (It beg, It end, UPredicate op) – поиск первого элемента для которого унарная операция op == true;
+        - min_element (It beg, It end) – поиск минимального элемента последовательности;
+        - min_element (It beg, It end, BPredicate op) – поиск минимального элемента для которых операция op == true;
+        - max_element (It beg, It end) – поиск максимального элемента последовательности;
+        - max_element (It beg, It end, BPredicate op) – поиск максимального элемента для которых операция op == true;
+        - search_n (It beg, It end, Size cnt, const T& v) – поиск вхождение последовательности из cnt элементов равных v;
+        - search_n (It beg, It end, Size cnt, const T& v, BPredicate op) – поиск вхождение последовательности из cnt элементов равных v и для которых операция op == true;
+        - search (FIt beg, FIt end, FIt2 sBeg, FIt2 sEnd) – поиск первого вхождения последовательности элементов заданной [sbeg;sEnd);
+        - search (FIt1 beg, FIt1 end, FIt2 sBeg, FIt2 sEnd, BPredicate op) – поиск первого вхождения последовательности элементов указанной [sbeg;sEnd) и с op == true;
+        - find_end (FIt beg, FIt end, FIt sBeg, FIt sEnd) – поиск последнего вхождения последовательности заданной [sBeg; sEnd);
+        - find_end (FIt beg, FIt end, FIt sBeg, FIt sEnd, BPredicate op) – поиск последнего вхождения последовательности указанной [sBeg; sEnd) и с op == true;
+        - find_first_of (FIt1 beg, FIt1 end, FIt2 sBeg, FIt2 sEnd) – поиск первого элемента входящего также в диапазон [sBeg; sEnd);
+        - find_first_of (FIt1 beg, FIt1 end, FIt2 sBeg, FIt2 sEnd, BPredicate op) – поиск первого элемента входящего также в диапазон [sBeg; sEnd), с использование предиката;
+        - adjacent_find (It beg, It end) – поиск первого элемента, равного следующему;
+        - adjacent_find_if (It beg, It end, BPredicate op) – поиск первого элемента, равного следующему, с использованием предиката;
+        - mismatch (It1 beg, It1 end, It2 cBeg) – ищет первое несовпадение между двумя последовательностями;
+        - mismatch (It1 beg, It1 end, It2 cBeg, BPredicate op) – ищет первое несовпадение между двумя последовательностями, с использованием предиката.
+
+        - copy (It sBeg, It sEnd, OIt dBeg) – копирование последовательности;
+        - copy_backward (BIt1 sBeg, BIt1 sEnd, BIt2 dEnd) – обратное копирование (в итоге будет обратный порядок следования элементов);
+        - fill (FIt beg, FIt end, const T& v) – заполнение интервала указанным значением v;
+        - fill_n (OIt beg, Size n, const T& v) – аналогично, заполняет интервал указанным значением;
+        - generate (FIt beg, FIt end, Func op) – заполнить интервал значениями сгенерированными функцией op;
+        - generate_n (OIt beg, Size n, Func op) – аналогично;
+        - replace(FIt beg, FIt end, const T& v, const T& rv) – заменить в последовательности значения v на rv;
+        - replace_if (FIt beg, FIt end, UPredicate op, const T& rv) – заменить в последовательности на rv все элементы для которых op(el) истина;
+        - replace_copy (It sBeg, It sEnd, OIt dBeg, const T& v, const T& rv) – заменить и скопировать;
+        - replace_copy_if (It sBeg, It sEnd, OIt dBeg, UPredicate op, const T& rv) – заменить на rv все элементы для которых op(el) истина и скопировать;
+        - transform (It sBeg, It sEnd, OIt dBeg, UnaryF op) – копирование (запись) результатов применения op(el);
+        - transform (It sBeg, It sEnd,It2 sBeg2, OIt dBeg, BinaryF op) – копирование результатов применения op(el1,el2), где el1 и el2 соответствующие элементы двух исходных последовательностей sBeg и Sbeg2;
+        - swap_ranges (FIt1 beg1, FIt1 end1, FIt2 beg2) – обменять соответствующие элементы двух последовательностей.
+        
     - Приведение типов:
         - сonst_cast<>() - 
 
