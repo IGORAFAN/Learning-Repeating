@@ -1,40 +1,26 @@
 #include <iostream>
-#include <iterator>
+#include <string.h>
 
-const char * concatStr( char* dest, const char* src )
-{ 
-    char* firstAdrOfDest = dest;
-    const char* firstAdrOfSrc = src;
+bool strCat( char* dest, size_t length, const char* src ) { 
+    auto lengthOfDest = strlen( dest );
+    auto lengthOfSrc = strlen( src );
 
-    size_t sizeOfFirst = 0;
-    size_t sizeOfLast = 0;
+    while( *dest != '\0') { ++dest; }
 
-    while( *dest != '\0') {
-        ++dest;
-        ++sizeOfFirst;
+    if( (lengthOfDest + lengthOfSrc + 1) < length ) {
+        while ( *dest++ = *src++ );
+        return true;
     }
-    while (*src != '\0') {
-        ++src;
-        ++sizeOfLast;
-    }
-
-    std::cout << std::size(firstAdrOfDest) << " " << sizeOfFirst << " " << sizeOfLast << std::endl;
-
-    if( std::size(firstAdrOfDest) > sizeOfFirst + sizeOfLast ) {
-        while (*dest++ = *firstAdrOfSrc++);
-        return firstAdrOfDest;
-    }
-    else {
-        return nullptr;
-    }
+    return false;
 }
 
 int main()
 {
-    char firstStr[32] =  { "Hello " };
+    const unsigned int sizeOfArr = 32;
+    char firstStr[sizeOfArr] =  { "Hello " };
     char secondStr[]  = { "World!" };
-    concatStr( firstStr, secondStr );
-
+    auto res = strCat( firstStr, sizeOfArr, secondStr );
+    std::cout << "Result: " << res << std::endl;
     std::cout << firstStr << std::endl;
 
     return 0;
