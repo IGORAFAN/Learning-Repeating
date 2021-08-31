@@ -4,7 +4,7 @@
 
 int main()
 {
-    std::stack<std::vector> myStack;
+    std::stack<std::vector<int>> myStack;
 
     myStack.push(5);
     myStack.push(7);
